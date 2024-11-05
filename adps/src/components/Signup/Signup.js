@@ -21,6 +21,20 @@ function Signup() {
   const [clientPassword, setClientPassword] = useState("");
   const [clientfoodPreference, setClientFoodPreference] = useState([]);
   /*Client Form end */
+
+  //CFe: Handle the form submissions
+ /* const handleSubmitClient = (e) => {
+    e.preventDefault();
+    const clientData = {
+      name: clientName,
+      phone: clientPhone,
+      email: clientEmail,
+      password: clientPassword,
+      country: clientCountry,
+      preference: clientfoodPreference,
+    };
+    
+  };*/
   useEffect(() => {
     if (role === "restaurant") {
       document.getElementById("restaurantForm").style.display = "block";
@@ -130,10 +144,10 @@ function Signup() {
           </form>
 
           <form
-            id="clientForm"
-            action="/signup"
-            method="post"
-            style={{ display: "none" }}
+            // id="clientForm"
+            // action="/signup"
+            // method="post"
+            // style={{ display: "none" }}
           >
             <div>
               
