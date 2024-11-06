@@ -3,21 +3,32 @@
 import React, { createContext, useContext, useState } from 'react';
 
 // HttpClient Implementation
-class HttpClient {
+export class HttpClient {
    baseURL;
 
   init(baseURL) {
     this.baseURL = baseURL;
   }
 
-  async get(collection) {
-    const response = await fetch(`${this.baseURL}/${collection}`, {
+  async get(link) {
+    const response = await fetch(`${this.baseURL}/${link}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
     });
     return this.result(response);
   }
+
+  async postSignUp(link, data) {
+    const response = await fetch(`${this.baseURL}/${link}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    console.log(response);
+    return this.result(response);
+  }
+
 
   async isUserLoggedIn() {
     try {
