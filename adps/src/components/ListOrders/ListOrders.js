@@ -1,6 +1,6 @@
 import React from 'react'
 import './ListOrders.css'
-import Order from './Order'
+import Order from '../Order'
 import { useState,useEffect } from 'react'
 function ListOrders() {
     const [orders,setOrders] = useState([{ name: 'Order 1',status:'reserved',picture:'',pickuptime:'thursday 16:00', quantity:3 
