@@ -41,10 +41,14 @@ function Signup() {
       role_id : 1,
       restaurant_info: {}
     };
-    httpClient.postSignUp("/auth/signup", clientData);
-    
+    const data = httpClient.postAuth("/auth/signup", clientData).json();
+      
+    // save auth-token in session storage
+    const token = data.authToken;
+    sessionStorage.setItem('authToken', token);
   };
-  const handleSubmitRest = (e) => {
+  
+  const handleSubmitRestaurant = (e) => {
     e.preventDefault();
     const clientData = {
       email: clientEmail,
@@ -59,7 +63,10 @@ function Signup() {
         tags: clientfoodPreference
       }
     };
-    httpClient.postSignUp("/auth/signup", clientData);
+    const data = httpClient.postSignUp("/auth/signup", clientData).json();
+        // save auth-token in session storage
+        const token = data.authToken;
+        sessionStorage.setItem('authToken', token);
     
   };
 
@@ -111,7 +118,7 @@ function Signup() {
   
           {/* Restaurant Form */}
           {role === "restaurant" && (
-            <form id="restaurantForm" action="/signup" method="post">
+            <form id="restaurantForm" onSubmit={handleSubmitRestaurant} >
               <div>
                 <label>name : </label>
                 <input

@@ -1,7 +1,5 @@
 // Author: Charlotte Fehlhauer
 
-import React, { createContext, useContext, useState } from 'react';
-
 // HttpClient Implementation
 export class HttpClient {
    baseURL;
@@ -10,16 +8,57 @@ export class HttpClient {
     this.baseURL = baseURL;
   }
 
+  //GET-REQUESTS
+  //Get Request, which require Authorization
   async get(link) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
     const response = await fetch(`${this.baseURL}/${link}`, {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
+      headers: { 
+        'Authorization': `Bearer ${token}`
+      },
+    });
+  
+    return this.result(response);
+  }
+
+  //Get Request, which don't require Authorization
+  async getNoAuth(link) {
+    const response = await fetch(`${this.baseURL}/${link}`, {
+      method: 'GET',
     });
     return this.result(response);
   }
 
-  async postSignUp(link, data) {
+  //Get-Request containing a specific id but don't need Authentication
+  async getWithIdNoAuth(link, id) {
+    const response = await fetch(`${this.baseURL}/${link}/${id}`, {
+      method: 'GET',
+    });
+    
+    return this.result(response);
+  }
+
+  //Get-Request containing a specific id
+  async getWithId(link, id) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
+    const response = await fetch(`${this.baseURL}/${link}/${id}`, {
+      method: 'GET',
+      headers: { 
+        'Authorization': `Bearer ${token}`
+      },
+    });
+    
+    return this.result(response);
+  }
+
+  //POST - Requests
+  //Post Sign-Up/Login Data and retreive token
+  async postAuth(link, data) {
     const response = await fetch(`${this.baseURL}/${link}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -29,21 +68,76 @@ export class HttpClient {
     return this.result(response);
   }
 
-
-  async isUserLoggedIn() {
-    try {
-      const response = await fetch(`${this.baseURL}/users/sign-in`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-      });
-      return response.ok;
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
+  //POST - Request
+  async post(link, data) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
+    const response = await fetch(`${this.baseURL}/${link}`, {
+      method: 'POST',
+      headers: { 
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+         },
+        body: JSON.stringify(data),
+      },
+    });
+  
+    return this.result(response);
   }
 
+  //Post - Request with ID
+  async postWithId(link, id, data) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
+    const response = await fetch(`${this.baseURL}/${link}/${id}`, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
+    });
+    
+    return this.result(response);
+  }
+  
+  //Put - Request containing a specific id
+  async put(link, id, data) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
+    const response = await fetch(`${this.baseURL}/${link}/${id}`, {
+      method: 'PUT',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
+    });
+    
+    return this.result(response);
+  }
+
+  //Put - Request containing a specific id
+  async delete(link, id) {
+    // Retrieve the token from localStorage
+    const token = sessionStorage.getItem('token'); 
+  
+    const response = await fetch(`${this.baseURL}/${link}/${id}`, {
+      method: 'DELETE',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    
+    return this.result(response);
+  }
+
+  
 
    async result(response) {
     if (response.ok) return response;
@@ -53,24 +147,3 @@ export class HttpClient {
   }
 }
 
-// HttpClient Context
-const HttpClientContext = createContext<HttpClient | null>(null);
-
-export const useHttpClient = () => {
-  const context = useContext(HttpClientContext);
-  if (!context) {
-    throw new Error("useHttpClient must be used within a HttpClientProvider");
-  }
-  return context;
-};
-
-// HttpClient Provider Component
-export const HttpClientProvider = ({ baseURL, children }) => {
-  const [client] = useState(() => {
-    const httpClient = new HttpClient();
-    httpClient.init(baseURL);
-    return httpClient;
-  });
-
-  return <HttpClientContext.Provider value={client}>{children}</HttpClientContext.Provider>;
-};

@@ -1,3 +1,4 @@
+// Author: Charlotte Fehlhauer
 // HttpClientContext.js
 import React, { createContext, useContext } from 'react';
 import { HttpClient } from './http-client'; 

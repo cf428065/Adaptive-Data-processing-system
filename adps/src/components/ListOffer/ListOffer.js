@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import './ListOffer.css'
-import Offer from './Offer'
+import Offer from '../Offer'
 function ListOffer() {
     const [offers,setOffers] = useState([]);
     const [email,setEmail] = useState("");
