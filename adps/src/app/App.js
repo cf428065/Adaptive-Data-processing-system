@@ -1,8 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HttpClientProvider } from '../httpClient/HttpClientContext';
+
+import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
-import { HttpClientProvider } from '../httpClient/HttpClientContext';
+import CreateOffer from '../components/CreateOffer/CreateOffer';  
+import ListOffer from '../components/ListOffer/ListOffer';
+import ListOrders from '../components/ListOrders/ListOrders';
+
 
 function App() {
 
@@ -11,11 +17,12 @@ function App() {
     <HttpClientProvider>
       <BrowserRouter>
         <Routes>
-
-            <Route index path="/login" element={<Login />} />
+            <Route index path="/home" element={<Home />} />
+            <Route  path="/login" element={<Login />} />
             <Route  path="/signup" element={<Signup />} />
-
-
+            <Route  path="/offers" element={<ListOffer />} />
+            <Route  path="/order" element={<ListOrders />} />
+            <Route  path="/createoffer" element={<CreateOffer />} />
         </Routes>
       </BrowserRouter>
     </HttpClientProvider>
