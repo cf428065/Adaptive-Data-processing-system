@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
-import magicBox from "../magic-bag.png";
-import Logo from "../logo.png";
+import magicBox from "../../magic-bag.png";
+import Logo from "../../logo.png";
 
 function Home() {
   return (

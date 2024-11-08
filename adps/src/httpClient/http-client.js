@@ -63,9 +63,14 @@ export class HttpClient {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
-    });
-    console.log(response);
-    return this.result(response);
+    }); 
+    console.log(response.bodyUsed); // Should log 'false' before reading the body
+
+  const responseData = await response.json();
+
+  console.log(response.bodyUsed); // Should log 'true' after reading the body
+  console.log("Response data:", responseData); // Output the response data
+  return this.result(responseData);
   }
 
   //POST - Request
@@ -139,11 +144,12 @@ export class HttpClient {
 
   
 
-   async result(response) {
+    async result(response) {
     if (response.ok) return response;
     const message = await response.text();
+    
     const errorMsg = JSON.parse(message)?.message || response.statusText;
     return Promise.reject({ message: errorMsg, statusCode: response.status });
   }
-}
+} 
 
