@@ -41,7 +41,7 @@ function Signup() {
       role_id : 1,
       restaurant_info: {}
     };
-    const data = httpClient.postAuth("/auth/signup", clientData).json();
+    const data = httpClient.postAuth("/auth/signup", clientData);
       
     // save auth-token in session storage
     const token = data.authToken;
