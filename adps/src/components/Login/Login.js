@@ -17,11 +17,7 @@ function Login() {
       email: email,
       password: password
     };
-    const data = httpClient.postAuth("/auth/login", clientData).json();
-      
-    // save auth-token in session storage
-    const token = data.authToken;
-    sessionStorage.setItem('authToken', token);
+  httpClient.postAuth("/auth/login", clientData);
   };
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
-
+//Order Logic is wrong, look at reservation in Backend
 function Order({customerName,status,picture,pickuptime,quantity}) {
+
   return (
     <div className="order">
         <img src={picture} alt="orderImage" />
