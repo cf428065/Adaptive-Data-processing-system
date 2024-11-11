@@ -65,13 +65,13 @@ export class HttpClient {
       body: JSON.stringify(data),
     }); 
 
+
   const responseData = await response.json();
   console.log("Response data:", responseData);
   sessionStorage.setItem('token', "Asfji");
   // Output the response data
   return this.result(responseData);
 }
-
   //POST - Request
   async post(link, data) {
     // Retrieve the token from localStorage
@@ -92,7 +92,7 @@ export class HttpClient {
   }
 
   //Post - Request with ID
-  async postWithId(link, id, data) {
+  async postPicture(link, id, data) {
     // Retrieve the token from localStorage
     const token = sessionStorage.getItem('token'); 
   
@@ -144,10 +144,10 @@ export class HttpClient {
   
 
     async result(response) {
-    if (response.ok) return response;
-    const message = await response.stringify();
 
-    
+    if (response.ok) return response.json();
+    const message = await response.text();
+
     const errorMsg = JSON.parse(message)?.message || response.statusText;
     return Promise.reject({ message: errorMsg, statusCode: response.status });
   }

@@ -12,7 +12,8 @@ function Signup() {
   const [restaurantEmail, setRestaurantEmail] = useState("");
   const [restaurantPassword, setRestaurantPassword] = useState("");
   const [foodOptions, setRestarantOptions] = useState([]);
-  //TO-DO: Add the other things
+  const [restaurantAddress, setRestaurantAddress] = useState("");
+  const [restaurantInfo, setRestaurantInfo] = useState("");
 
   /* Restaurant form end */
 
@@ -27,7 +28,7 @@ function Signup() {
   /*Client Form end */
 
   //CFe: Handle the form submissions
-  const handleSubmitClient = (e) => {
+   const handleSubmitClient = (e) => {
     e.preventDefault();
     const clientData = {
       email: clientEmail,
@@ -41,32 +42,29 @@ function Signup() {
       role_id : 1,
       restaurant_info: {}
     };
-    const data = httpClient.postAuth("/auth/signup", clientData);
-      
-    // save auth-token in session storage
-    const token = data.authToken;
-    sessionStorage.setItem('authToken', token);
+      const result =  httpClient.postAuth("/auth/signup", clientData);
+      console.log(result);
+       
+    
   };
   
   const handleSubmitRestaurant = (e) => {
     e.preventDefault();
-    const clientData = {
-      email: clientEmail,
-      password: clientPassword,
+    const restaurantData = {
+      email: restaurantEmail,
+      password: restaurantPassword,
       client_info: {},
-      role_id : 0,
+      role_id : 2,
       restaurant_info: {
-        name: clientName,
-        phone: clientPhone,
-        //TO DO- Add the other things
-        country: clientCountry,
-        tags: clientfoodPreference
+        name: restaurantName,
+        phone: restaurantPhone,
+        info: restaurantInfo,
+        adress: restaurantAddress,
+        work_time: { "Mn": "08:30-20:30", "Tu": "08:30-20:30", "We": "08:30-20:30", "Th": "08:30-20:30", "Fr": "08:30-22:00", "Sa": "09:00-22:00", "Su": "09:00-18:00" } 
       }
     };
-    const data = httpClient.postSignUp("/auth/signup", clientData).json();
-        // save auth-token in session storage
-        const token = data.authToken;
-        sessionStorage.setItem('authToken', token);
+    httpClient.postAuth("/auth/signup", restaurantData);
+
     
   };
 
@@ -118,56 +116,74 @@ function Signup() {
   
           {/* Restaurant Form */}
           {role === "restaurant" && (
-            <form id="restaurantForm" onSubmit={handleSubmitRestaurant} >
-              <div>
-                <label>name : </label>
-                <input
-                  type="text"
-                  value={restaurantName}
-                  onChange={(e) => setRestaurantName(e.target.value)}
-                />
-              </div>
-              <div>
-                <label>email : </label>
-                <input
-                  type="text"
-                  value={restaurantEmail}
-                  onChange={(e) => setRestaurantEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <label>password : </label>
-                <input
-                  type="password"
-                  value={restaurantPassword}
-                  onChange={(e) => setRestaurantPassword(e.target.value)}
-                />
-              </div>
-              <div>
-                <label>phone : </label>
-                <input
-                  type="number"
-                  value={restaurantPhone}
-                  onChange={(e) => setRestaurantPhone(e.target.value)}
-                />
-              </div>
-              <div>
-                <select
-                  name="foodOptions"
-                  id="foodOptions"
-                  value={foodOptions}
-                  onChange={(e) => setRestarantOptions(e.target.value)}
-                >
-                  <option>vegan</option>
-                  <option>vegetarian</option>
-                  <option>lactose intolerant</option>
-                  <option>omnivore</option>
-                </select>
-              </div>
-              <input type="hidden" name="role" value="2" />
-              <input type="submit" value="submit" />
-            </form>
-          )}
+          <form id="restaurantForm" onSubmit={handleSubmitRestaurant}>
+            <div>
+              <label>name : </label>
+              <input
+                type="text"
+                value={restaurantName}
+                onChange={(e) => setRestaurantName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>email : </label>
+              <input
+                type="text"
+                value={restaurantEmail}
+                onChange={(e) => setRestaurantEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>password : </label>
+              <input
+                type="password"
+                value={restaurantPassword}
+                onChange={(e) => setRestaurantPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>phone : </label>
+              <input
+                type="number"
+                value={restaurantPhone}
+                onChange={(e) => setRestaurantPhone(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>address : </label>
+              <input
+                type="text"
+                value={restaurantAddress}
+                onChange={(e) => setRestaurantAddress(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>information : </label>
+              <input
+                type="text"
+                value={restaurantInfo}
+                onChange={(e) => setRestaurantInfo(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>food options : </label>
+              <select
+                name="foodOptions"
+                id="foodOptions"
+                value={foodOptions}
+                onChange={(e) => setRestarantOptions(e.target.value)}
+              >
+                <option>vegan</option>
+                <option>vegetarian</option>
+                <option>lactose intolerant</option>
+                <option>omnivore</option>
+              </select>
+            </div>
+            <input type="hidden" name="role" value="2" />
+            <input type="submit" value="submit" />
+          </form>
+        )}
+
   
           {/* Client Form */}
           {role === "client" && (

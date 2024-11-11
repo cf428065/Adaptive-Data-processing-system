@@ -8,12 +8,12 @@ function CreateOffer() {
     //Context-object
     const httpClient = useHttpClient();
 
-    const [id, setId] = useState("");
     const [name, setName] = useState("");
-    const [boxType, setBoxType] = useState([]);
-    //const [picture, setPicture] = useState([]);
+    const [boxType, setBoxType] = useState([]); //needs to be implemented
+    const [picture, setPicture] = useState([]);//needs to be implemented
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
+    const [id, setId] = useState(""); //I Don't think we need that since i get it in createrOffer()-method 
 async function createOffer(e) {
     e.preventDefault();
     const id = httpClient.get("/auth/me").json().id;
@@ -32,7 +32,7 @@ async function createOffer(e) {
   return (
     <div>
       CreateOffer
-      <form onSubmit={createOffer} method="post" enctype="multipart/form-data">
+      <form onSubmit={createOffer} enctype="multipart/form-data">
         <input type="hidden" value={id}  />
         <div className="form-group">
           <label> Box Name :</label>
