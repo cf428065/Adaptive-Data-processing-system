@@ -64,11 +64,14 @@ export class HttpClient {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     }); 
-  const responseData = await this.result(response);
-  sessionStorage.setItem('authToken', responseData.authToken);
-  return responseData;
-  }
 
+
+  const responseData = await response.json();
+  console.log("Response data:", responseData);
+  sessionStorage.setItem('token', "Asfji");
+  // Output the response data
+  return this.result(responseData);
+}
   //POST - Request
   async post(link, data) {
     // Retrieve the token from localStorage
@@ -141,8 +144,10 @@ export class HttpClient {
   
 
     async result(response) {
+
     if (response.ok) return response.json();
     const message = await response.text();
+
     const errorMsg = JSON.parse(message)?.message || response.statusText;
     return Promise.reject({ message: errorMsg, statusCode: response.status });
   }
