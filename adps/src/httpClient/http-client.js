@@ -64,14 +64,13 @@ export class HttpClient {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     }); 
-    console.log(response.bodyUsed); // Should log 'false' before reading the body
 
   const responseData = await response.json();
-
-  console.log(response.bodyUsed); // Should log 'true' after reading the body
-  console.log("Response data:", responseData); // Output the response data
+  console.log("Response data:", responseData);
+  sessionStorage.setItem('token', "Asfji");
+  // Output the response data
   return this.result(responseData);
-  }
+}
 
   //POST - Request
   async post(link, data) {
@@ -146,7 +145,8 @@ export class HttpClient {
 
     async result(response) {
     if (response.ok) return response;
-    const message = await response.text();
+    const message = await response.stringify();
+
     
     const errorMsg = JSON.parse(message)?.message || response.statusText;
     return Promise.reject({ message: errorMsg, statusCode: response.status });
