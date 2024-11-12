@@ -24,10 +24,17 @@ function Login() {
   return (
     <div id="loginPage">
       <div id="loginBox">
+<<<<<<< HEAD
         <div id="loginFormBox">
           <div id="formTitle">Sign in</div>
           <div>
             <form id='loginForm'onSubmit={handleSubmit}>
+=======
+        <div id="loginForm">
+          <div id="formTitle">Sign in</div>
+          <div>
+            <form onSubmit={handleSubmit}>
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
               <div className="inputBox">
                 <label>Email</label>
                 {/* Aktualisiere den Zustand, wenn der Benutzer die Eingabe ändert */}

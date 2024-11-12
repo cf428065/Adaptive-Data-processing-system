@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./Home.css";
 import magicBox from "../../magic-bag.png";
@@ -39,3 +40,29 @@ Call to Action:
 }
 
 export default Home;
+=======
+import React from "react";
+import "./Home.css";
+import magicBox from "../../magic-bag.png";
+import Logo from "../../logo.png";
+
+function Home() {
+  return (
+    <div id="HomePage">
+      <div id="mission">
+        <div id="logocombination">
+          <img id="logo" src={Logo} />
+          <p id="Title">Too good to go</p>
+          <div />
+         
+        </div>
+      </div>
+      <div id="LandingImage">
+        <img src={magicBox} />
+      </div>
+    </div>
+  );
+}
+
+export default Home;
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24

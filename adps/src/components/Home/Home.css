@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
@@ -78,3 +79,46 @@ color: rgb(0, 0, 0);
 #bagImage{
 width: 100%;
 }
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#HomePage{
+display: grid;
+grid-template-columns: 50vw 50vw ;
+grid-template-rows: 100vh;
+background-color: rgb(255, 255, 255);
+
+}
+#mission{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#logocombination{
+    padding-top: 3vh;
+    padding-left: 3vh;
+    display: flex;
+    row-gap: 10px;
+    column-gap: 0px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:row;
+    width: 100%;
+}
+#logo{
+    width: 170px;
+    height: 100px;
+}
+#Title{
+    padding-top: 1.5vh;
+    
+    font-size: 2.8em;
+    font-weight: 800;
+    color: #01AA97;
+}
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24

@@ -104,7 +104,11 @@ text-align: center;
   color: rgb(255, 255, 255, .7);
 }
 
+<<<<<<< HEAD
 #loginFormBox{
+=======
+#loginForm{
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -121,7 +125,11 @@ justify-content:flex-start;
 align-items: center;
 font-weight: bolder;
 }
+<<<<<<< HEAD
 #loginForm{
+=======
+form{
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,5 +1,25 @@
+<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ebdcdc;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    row-gap:3vh ;
+    column-gap:3vh ;
+}
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
