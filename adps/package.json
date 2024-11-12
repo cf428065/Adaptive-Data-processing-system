@@ -9,10 +9,7 @@
     "bootstrap": "^5.3.3",
     "mdb-react-ui-kit": "^9.0.0",
     "react": "^18.3.1",
-<<<<<<< HEAD
     "react-alert": "^7.0.3",
-=======
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -45,8 +42,5 @@
   "devDependencies": {
     "react-router-dom": "^6.27.0"
   }
-<<<<<<< HEAD
-=======
   
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 }

@@ -4,55 +4,28 @@
     box-sizing: border-box;
     box-shadow: 0;
     font-family: 'Poppins', sans-serif;
-<<<<<<< HEAD
-    font-size: 1.2rem;
-    text-transform: capitalize;
-}
-
-=======
     
 }
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
 }
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 a{
     text-decoration: none;
     color: #000000;
 }
-<<<<<<< HEAD
-#signupDefault{
-    display: flex;
-    flex-direction:row ;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.dialoug{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-=======
 
 .container{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
     flex-direction: row;
     background-color: #ffffff;
     padding: 0px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
-    height: 100vh;
-    width: 100vw;
-=======
     height: 80vh;
     width: 90vw;
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 }   
 #welcomeSection{
     display: flex;
@@ -63,11 +36,7 @@ a{
     height: 100%;
     padding: 20px;
     color: #ffffff;
-<<<<<<< HEAD
-    background-color: #31cc5d;
-=======
     background-color: #5e5df0;
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 }
 #formSection{
     width: 50%;
@@ -82,7 +51,6 @@ a{
     font-size: 2rem;
     padding-top: 20px;
 }
-<<<<<<< HEAD
 #restaurantForm , #clientForm{
     display: flex;
     flex-direction: column;
@@ -90,8 +58,6 @@ a{
     width: 100%;
     row-gap: 1vh;
 }
-=======
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 #formTitle{
     grid-row: 0;
     grid-column: 1/3;
@@ -135,16 +101,6 @@ font-size: 2rem;
     justify-content: center;
     align-items: center;
 }
-<<<<<<< HEAD
-.inplabel-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 21vw;
-
-}
-=======
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 
 /* CSS */
 .button-34 {
@@ -168,50 +124,4 @@ font-size: 2rem;
   height: 7vh;
   word-break: break-word;
   border: 0;
-<<<<<<< HEAD
 }
-
-.signup-label{
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    
-}
-
-.formInput{
-    border-radius: 13px;
-    border: 1px  dashed ;
- border-bottom: 6px solid rgb(64, 219, 101) ;
-    height: 5vh;
-}
-
-.custom-select{
-    border-radius:15px ;
-    position: relative;
-    font-family: Arial;
-    background-color: #31cc5d;
-    color: #FFFFFF;
-    text-align: center;
-    width:11vw ;
-}
-.signup-submit{
-    width: 7vw;
-    height: 5vh;
-    border-radius: 10px;
-    box-shadow: #000000 10px;
-    background-color:#ffffff;
-    color: #31CC5D;
-    border: 3px #31CC5D solid;
-    margin: auto;
-    font-size: 1.4rem;
-    font-weight: 900;
-}
-.signup-submit:focus{
-    background-color: #000000;
-    color: white;
-
-}
-  
-=======
-}
->>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24

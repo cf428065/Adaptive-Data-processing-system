@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 import Box from '../Box';
 import { useHttpClient } from '../../httpClient/HttpClientContext'
 
-function ListBoxes() { 
+function ListBoxes({BoxName, BoxTags, Price, img}) { 
   
   const httpClient = useHttpClient();
   const [boxes,setBoxes] = useState([]);
@@ -20,7 +20,7 @@ function ListBoxes() {
 
   function createOrder(e){
   e.preventDefault();
-  if (confirm("you want to confirm the order")) {
+  if (alert("you want to confirm the order")) {
     const data = {
       //TO-DO fill with correct values when page is finished
       box_id: 0,
