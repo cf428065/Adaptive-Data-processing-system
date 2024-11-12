@@ -146,7 +146,11 @@ export class HttpClient {
     async result(response) {
 
     if (response.ok) return response.json();
+<<<<<<< HEAD
+    const message = await response.json();
+=======
     const message = await response.text();
+>>>>>>> 1f464f5db8a4b29b6bca16e6eab265fa19a42a24
 
     const errorMsg = JSON.parse(message)?.message || response.statusText;
     return Promise.reject({ message: errorMsg, statusCode: response.status });
